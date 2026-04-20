@@ -1,0 +1,5 @@
+project_id      = "GCP_PROJECT_ID"
+project_number  = "GCP_PROJECT_NUMBER"
+region          = "GCP_REGION"
+bucket_name     = "GCS_BUCKET_NAME"
+credentials_file = "RELATIVE_PATH_KEY_FILE"

@@ -1,0 +1,6 @@
+pandas>=3.0.2
+sodapy>=2.2.0
+google-cloud-storage>=2.14.0
+google-cloud-bigquery>=3.17.0
+python-dotenv>=1.0.0
+requests>=2.31.0

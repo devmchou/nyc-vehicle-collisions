@@ -1,0 +1,29 @@
+
+name: seeds.city_holidays
+type: bq.seed
+
+# Path to the CSV file (relative to this .asset.yml file).
+# Can also be a URL: https://example.com/data.csv
+parameters:
+  path: city_holidays.csv
+
+# TODO: Define columns and add quality checks.
+# - Lookups should have a stable primary key.
+columns:
+  - name: holiday_name
+    type: STRING
+    description: Name of the holiday.
+    
+  - name: holiday_date
+    type: DATE
+    description: Date of the holiday.
+    checks:
+      - name: not_null
+      - name: unique
+
+  - name: observed_date
+    type: DATE
+    description: Date the holiday is observed.
+    checks:
+      - name: not_null
+      - name: unique
