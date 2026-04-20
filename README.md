@@ -132,6 +132,8 @@ View the Looker Studio [dashboard](https://datastudio.google.com/reporting/c938b
   - In the `terraform` directory, copy the `terraform.tfvars.example` file to
   `terraform.tfvars`.  
     ```
+    cd terraform
+
     cp terraform.tfvars.example terraform.tfvars
     ```
     Configure the values in `terraform.tfvars`.
@@ -145,6 +147,7 @@ View the Looker Studio [dashboard](https://datastudio.google.com/reporting/c938b
 
 4.  Run Terraform to create the resources.
     ```
+    cd terraform
     terraform init
     terraform apply
     ```
@@ -153,15 +156,19 @@ View the Looker Studio [dashboard](https://datastudio.google.com/reporting/c938b
 5. Run Bruin pipeline with start and end dates specified.
 
     ```
+    # cd to root folder
+    cd ..
+
     source .env
 
+    cd bruin
     uv run bruin . --start-date 2023-01-01 --end-date 2026-05-01
     ```
 
 ## Prerequisites
 - Python 3.11+
-- [uv]()
-- [gcloud]()
+- [uv](https://docs.astral.sh/uv/getting-started/installation/)
+- [gcloud](https://docs.cloud.google.com/sdk/docs/install-sdk)
 - Setup authorization for Google Cloud SDK
 - GCP project, with GCS and BigQuery enabled
 - [Terraform](https://www.terraform.io/downloads)
