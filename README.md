@@ -49,7 +49,7 @@ This is an ELT pipeline, using Bruin for orchestration in each of the following 
 
 - Extract: Ingestion occurs by querying the data from the NYC Open Data API endpoint.
 - Load: The raw CSV data is loaded into Google Cloud Storage.
-- Transform: Bruin is used for the data transformation into progressively more analysis-ready BigQuery tables.
+- Transform: Bruin is used for the data transformation into progressively more analysis-ready BigQuery datasets.
 
 ## Data Model
 
@@ -122,47 +122,56 @@ View the Looker Studio [dashboard](https://datastudio.google.com/reporting/c938b
 
       
 
-  - Copy the `.env.example` file to `.env`.  Then configure the values in the `.env` file.
+  - Copy the `.env.example` file to `.env`.
 
     ```
     cp .env.example .env
     ```
-    Configure the values in the `.env` file.
+    Configure the values in the `.env` file, then run
+    ```
+    source .env
+    ```
+
+  - In the `bruin` directory, copy the `.bruin.yml.example` file to
+  `.bruin.yml`.  
+    ```
+    cd bruin
+
+    cp .bruin.yml.example .bruin.yml
+    ```
+    Configure the values in `.bruin.yml`.
 
   - In the `terraform` directory, copy the `terraform.tfvars.example` file to
   `terraform.tfvars`.  
     ```
-    cd terraform
+    cd ../terraform
 
     cp terraform.tfvars.example terraform.tfvars
     ```
     Configure the values in `terraform.tfvars`.
 
-  - Copy the `.bruin.yml.example` file to
-  `.bruin.yml`.  
-    ```
-    cp .bruin.yml.example .bruin.yml
-    ```
-    Configure the values in `.bruin.yml`.
 
 4.  Run Terraform to create the resources.
     ```
-    cd terraform
     terraform init
+    terraform plan
     terraform apply
     ```
-    This creates the GCS bucket and Google BigQuery dataset.
+    This creates the GCS bucket and Google BigQuery datasets.
 
-5. Run Bruin pipeline with start and end dates specified.
+    If the unique name of the GCS bucket created by Terraform is <u>different</u> from the one you configured in `.env`, update its value in the `.env` file and rerun `source .env`.
+
+5.  Run Bruin pipeline with start and end dates specified.  The following step presumes that we are creating for the first time and backfilling the data.  
+
 
     ```
-    # cd to root folder
-    cd ..
+    cd bruin/pipeline
 
-    source .env
-
-    cd bruin
-    uv run bruin . --start-date 2023-01-01 --end-date 2026-05-01
+    uv run bruin run --full-refresh \
+    --start-date 2023-01-01 \
+    --end-date 2027-01-01 \
+    --environment default \
+    --config-file ../.bruin.yml
     ```
 
 ## Prerequisites
