@@ -5,13 +5,13 @@
 An end-to-end batch data pipeline, facilitating analytics of New York City motor vehicle collision data over the last 3+ years.
 
 ## Table of Contents
-- [Background](#-background)
-- [Tech Stack](#-tech-stack)
-- [Architecture](#-architecture)
-- [Data Model](#-data-model)
-- [Dashboard](#-dashboard)
-- [Instructions To Run](#-instructions-to-run-the-project)
-- [Prerequisites](#-prerequisites)
+* [Background](#background)
+* [Tech Stack](#tech-stack)
+* [Architecture](#architecture)
+* [Data Model](#data-model)
+* [Dashboard](#dashboard)
+* [Instructions To Run](#instructions-to-run-the-project)
+* [Prerequisites](#prerequisites)
 
 
 ## Background
@@ -98,7 +98,7 @@ View the Looker Studio [dashboard](https://datastudio.google.com/reporting/c938b
     cd nyc-vehicle-collisions
     ```
 
-2.  Setup the [prerequisites](#-prerequisites).
+2.  Setup the [prerequisites](#prerequisites).
 3.  Install Python dependencies.
     ```
     uv sync
