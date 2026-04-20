@@ -118,7 +118,7 @@ View the Looker Studio [dashboard](https://datastudio.google.com/reporting/c938b
       | GCS_BUCKET_NAME      | your GCS bucket name        | nycdata_gcs_bucket_999073035123 |
       | GOOGLE_APPLICATION_CREDENTIALS         | absolute path to your service account key JSON file       | /Users/name/projects/de-zoomcamp-finalproject/sa-key.json|
       | RELATIVE_PATH_KEY_FILE         | relative path to your service account key JSON file       | ../sa-key.json|
-      | SOCRATA_API_TOKEN      | NYC Open Data API token      | kcKh6jIddtkdPrJKI2StwQK8p  |
+      | SOCRATA_APP_TOKEN      | NYC Open Data app token      | kcKh6jIddtkdPrJKI2StwQK8p  |
 
       
 

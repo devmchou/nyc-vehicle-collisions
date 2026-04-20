@@ -20,7 +20,7 @@ end_date = os.environ.get("BRUIN_END_DATE")
 start_date_string = start_date.replace("-", "")  # YYYYMMDD
 end_date_string = end_date.replace("-", "")  # YYYYMMDD
 
-api_token = os.environ.get("SOCRATA_API_TOKEN")
+api_token = os.environ.get("SOCRATA_APP_TOKEN")
 url = "data.cityofnewyork.us"
 dataset_id = "h9gi-nx95"
 where = f"crash_date >= '{start_date}' AND crash_date < '{end_date}'"
